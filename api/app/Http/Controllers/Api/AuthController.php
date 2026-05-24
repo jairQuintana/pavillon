@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Responses\CustomResponse;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,10 +23,8 @@ class AuthController extends Controller
 
         $token = $user->createToken('auth')->plainTextToken;
 
-        return response()->json([
-            'user' => $user,
-            'token' => $token,
-        ], 201);
+        return CustomResponse::success('successfuly registered', ['user' => $user,
+            'token' => $token, ]);
     }
 
     public function login(LoginRequest $request): JsonResponse
@@ -33,30 +32,29 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (! $user || ! password_verify($request->password, $user->password)) {
-            return response()->json([
-                'message' => 'Credenciales incorrectas.',
-            ], 401);
+            return CustomResponse::success('incorrect credentials', 401);
         }
 
         $token = $user->createToken('auth')->plainTextToken;
 
-        return response()->json([
+        return CustomResponse::success('successfuly login', [
             'user' => $user,
             'token' => $token,
         ]);
+
     }
 
     public function logout(Request $request): JsonResponse
     {
         $request->user()->currentAccessToken()->delete();
 
-        return response()->json([
-            'message' => 'Sesión cerrada correctamente.',
-        ]);
+        return CustomResponse::success('successfuly logout');
+
     }
 
     public function me(Request $request): JsonResponse
     {
-        return response()->json($request->user());
+        return CustomResponse::success('successfuly logout', $request->user());
+
     }
 }
