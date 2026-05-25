@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router'
+import Header from '../components/app/Header'
 
 const AppLayout = () => {
   return (
-    <main>
-      AppLayout
-      <Outlet />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+    </>
   )
 }
 

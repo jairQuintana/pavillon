@@ -2,9 +2,9 @@ import { Loader2 } from 'lucide-react'
 
 const GlobalSpinner = () => {
   return (
-    <>
-      <Loader2 className="animate-spin text-amber-200" />
-    </>
+    <main className="flex h-dvh w-full items-center justify-center">
+      <Loader2 size={50} className="text-forest animate-spin" />
+    </main>
   )
 }
 
