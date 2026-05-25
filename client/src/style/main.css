@@ -1,8 +1,61 @@
 @import 'tailwindcss';
 
+@theme {
+  /* Escala cream */
+  --color-cream-100: rgb(248 246 241 / 0.1);
+  --color-cream-200: rgb(248 246 241 / 0.25);
+  --color-cream-300: rgb(248 246 241 / 0.4);
+  --color-cream-400: rgb(248 246 241 / 0.6);
+  --color-cream-500: #f8f6f1;
+
+  /* Escala ink */
+  --color-ink-100: rgb(26 26 24 / 0.1);
+  --color-ink-200: rgb(26 26 24 / 0.25);
+  --color-ink-300: rgb(26 26 24 / 0.4);
+  --color-ink-400: rgb(26 26 24 / 0.6);
+  --color-ink-500: #1a1a18;
+
+  /* Escala forest */
+  --color-forest-100: rgb(44 62 45 / 0.1);
+  --color-forest-200: rgb(44 62 45 / 0.25);
+  --color-forest-300: rgb(44 62 45 / 0.4);
+  --color-forest-400: rgb(44 62 45 / 0.6);
+  --color-forest-500: #2c3e2d;
+
+  /* Escala sand */
+  --color-sand-100: rgb(201 185 154 / 0.1);
+  --color-sand-200: rgb(201 185 154 / 0.25);
+  --color-sand-300: rgb(201 185 154 / 0.4);
+  --color-sand-400: rgb(201 185 154 / 0.6);
+  --color-sand-500: #c9b99a;
+
+  /* Escala alert */
+  --color-alert-100: rgb(232 83 58 / 0.1);
+  --color-alert-200: rgb(232 83 58 / 0.25);
+  --color-alert-300: rgb(232 83 58 / 0.4);
+  --color-alert-400: rgb(232 83 58 / 0.6);
+  --color-alert-500: #e8533a;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 4px 0 var(--color-sand-100);
+  --shadow-md: 0 4px 12px 0 var(--color-sand-200);
+  --shadow-lg: 0 8px 24px 0 var(--color-sand-300);
+
+  /* Tipografía */
+  --font-family-display: 'Cormorant Garamond', Georgia, serif;
+  --font-family-ui: 'Inter', sans-serif;
+
+  /* Radios */
+  --radius-card: 10px;
+  --radius-btn: 8px;
+  --radius-pill: 20px;
+  --radius-input: 6px;
+}
 body {
   width: 100dvw;
   height: 100dvh;
+  background-color: var(--color-cream-500);
+  color: var(--color-ink-500);
 }
 
 * {
