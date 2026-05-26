@@ -1,3 +1,12 @@
+import type { User } from './user'
+
+export interface AuthContextType {
+  authToken: string | null
+  user: User | null
+  login: (token: string) => void
+  logout: () => void
+}
+
 export interface LoginCredentials {
   email: string
   password: string

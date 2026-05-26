@@ -1,22 +1,25 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
-import { login } from '../../services/authApi'
+import { getMe, loginService } from '../../services/authApi'
+import { setBrowserToken } from '../../utils/browser'
+import { useNavigate } from 'react-router'
 
-export const useGetAuthentication = () => {
+export const useGetAuthentication = (enabled: boolean) => {
   return useQuery({
-    queryKey: ['auth'],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      return true
-    },
+    queryKey: ['authentication'],
+    queryFn: getMe,
+    enabled,
+    retry: 2,
   })
 }
 
 export const useLogin = () => {
+  const navigate = useNavigate()
   return useMutation({
-    mutationFn: login,
-    onSuccess: () => {
-      console.log('Login successful')
+    mutationFn: loginService,
+    onSuccess: (data) => {
+      console.log('¡¡¡¡Login successful!!!', data)
+      setBrowserToken(data.token)
+      navigate('/app')
     },
   })
 }
