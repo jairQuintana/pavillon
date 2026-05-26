@@ -17,7 +17,6 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: loginService,
     onSuccess: (data) => {
-      console.log('¡¡¡¡Login successful!!!', data)
       setBrowserToken(data.token)
       navigate('/app')
     },
