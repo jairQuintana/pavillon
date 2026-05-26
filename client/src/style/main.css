@@ -42,8 +42,8 @@
   --shadow-lg: 0 8px 24px 0 var(--color-sand-300);
 
   /* Tipografía */
-  --font-family-display: 'Cormorant Garamond', Georgia, serif;
-  --font-family-ui: 'Inter', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Inter', sans-serif;
 
   /* Radios */
   --radius-card: 10px;
@@ -56,6 +56,7 @@ body {
   height: 100dvh;
   background-color: var(--color-cream-500);
   color: var(--color-ink-500);
+  font-family: var(--font-ui);
 }
 
 * {
