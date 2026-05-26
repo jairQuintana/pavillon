@@ -32,7 +32,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (! $user || ! password_verify($request->password, $user->password)) {
-            return CustomResponse::success('incorrect credentials', 401);
+            return CustomResponse::error('incorrect credentials', 401);
         }
 
         $token = $user->createToken('auth')->plainTextToken;
